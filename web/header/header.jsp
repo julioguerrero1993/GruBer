@@ -4,13 +4,24 @@
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
+<%@page import="DTO.Cliente"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<% HttpSession sessionC = request.getSession(); 
+   Cliente c = (Cliente) sessionC.getAttribute("sessionCliente");
+%>
+
 <header class="c-header">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <div class="c-header__link"><a href="#"><img src="${pageContext.request.contextPath}/img/grua2.png"></a></div>
+            <% if (c == null){ %>
             <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="#loginModal">Iniciar Sesión</a><a class="c-header__btn c-header__btn--help" href="#">Te ayudamos</a></div>
+            <% } else { %>
+            <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="${pageContext.request.contextPath}/Logout">Cerrar Sesión</a><a class="c-header__btn c-header__btn--help" href="#">Te ayudamos</a></div>
+            <% } %>
             <div class="c-header__service"><span>Servicio al cliente</span><a href="tel:+5626005005000">600 500 5000</a></div>
             <div class="c-header__toogle"><a class="c-header__menu" id="menu-mobile" href="#" state="0"></a></div>
             <div class="c-header__mobile-buttons"><a class="c-header__btn-mobile c-header__btn-mobile--call" href="tel:6005005000"><i></i></a><a class="c-header__btn-mobile c-header__btn-mobile--user" href="#loginModal"><i></i></a></div>

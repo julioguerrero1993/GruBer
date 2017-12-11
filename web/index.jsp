@@ -83,12 +83,6 @@
             agregaColorTextoContent();
             map.setCenter(posgruas);
       });}
-      $(document).ready(function(){
-          $("#enter").click(function(){
-          window.location = "PanelUsuario/panel_usuario.jsp";
-      });
-          
-      });
     </script>
     <style>
       #map {
@@ -169,7 +163,7 @@
             </div>
           </div>
           <div class="c-modal__modalBody">
-              <form class="o-form--loginForm" id="login" action="/cl.gruber.Controller/LoginClienteController.java" method="POST">
+              <form class="o-form--loginForm" id="login" action="LoginClienteController" method="POST">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="o-form__field">

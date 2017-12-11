@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 /**
  * 
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author jg
  */
 public class ClienteDAO {
 
@@ -42,7 +42,7 @@ public class ClienteDAO {
     public Cliente validaLogin(String rut, String pass){
         Cliente cliente = null;
         try {
-            cliente = new Cliente();
+            cliente = null;
             ps = con.getCnn().prepareStatement(SQL_LOGIN);
             ps.setString(1, rut);
             ps.setString(2, pass);

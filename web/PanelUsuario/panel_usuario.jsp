@@ -1,9 +1,11 @@
 <%-- 
     Document   : panel_usuario
     Created on : 10-12-2017, 22:33:23
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Author     : jg
 --%>
-
+<%@page import="DTO.Cliente"%>
+<% HttpSession sessionCliente = request.getSession(); %>
+<% Cliente cliente = (Cliente) sessionCliente.getAttribute("sessionCliente"); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edsge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Panel de Usuario</title>
+    <title>Panel de Usuario </title>
     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
@@ -34,43 +36,29 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script> 
       function initMap() {
-        var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
-
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 15
         });
-        directionsDisplay.setMap(map);
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
         // intenta iniciar el mapa.
         if (navigator.geolocation) {
-            alert("entra al if");
-          var posgruas = {lat: -33.4206593, lng: -70.6067563};
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-            directionsService.route({
-              origin: pos,
-              destination: posgruas,
-              travelMode: 'DRIVING'
-            }, function(response, status) {
-                if (status === 'OK') {
-                  directionsDisplay.setDirections(response);
-                } else {
-                  window.alert('Directions request failed due to ' + status);
-                }
-              });
-            }
-            
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent("Ubicacion encontrada");
+            agregaColorTextoContent();
+            map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
           agregaColorTextoContent();
         } else {
-            alert("entra al else");
           // navegador no puede utilizar el geolocalizador
           handleLocationError(false, infoWindow, map.getCenter());
         }
@@ -106,7 +94,7 @@
     </script>
     <style>
       #map {
-        height: 90%;
+        height: 100%;
       }
     </style>
   </head>
@@ -139,7 +127,7 @@
                           <div class="col-12">
                             <div class="c-summary__cost">
                               <div class="c-summary__label">Nombre : </div>
-                              <div class="c-summary__price"><sup> </sup>Juan Soto<sub></sub></div>
+                              <div class="c-summary__price"><sup> </sup><%= cliente.getNombre() %><sub></sub></div>
                             </div>
                             <p class="c-summary__legal">Grúa en Camino : NO</p>
                           </div>
