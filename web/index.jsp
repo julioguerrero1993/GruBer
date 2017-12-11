@@ -174,7 +174,7 @@
                 <div class="col-lg-12">
                   <div class="o-form__field">
                     <label class="o-form__label">Contraseña</label>
-                    <input class="o-form__input" type="text" placeholder="*******" required="" name="password" id="password"><span class="o-form__message"></span>
+                    <input class="o-form__input" type="password" placeholder="*******" required="" name="password" id="password"><span class="o-form__message"></span>
                   </div>
                 </div>
                 <div class="col-lg-12">

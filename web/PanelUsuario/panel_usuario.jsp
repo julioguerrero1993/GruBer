@@ -97,7 +97,7 @@
     </script>
     <style>
       #map {
-        height: 100%;
+        height: 85%;
       }
     </style>
   </head>
@@ -141,28 +141,14 @@
                                   <table class="o-table o-table--basic u-mb20">
                                     <thead class="o-table__head">
                                       <tr class="o-table__row">
-                                        <th class="o-table__col">Tipo</th>
-                                        <th class="o-table__col">Modelo</th>
+                                        <th class="o-table__col">Correo</th>
+                                        <th class="o-table__col">Telefono</th>
                                       </tr>
                                     </thead>
                                     <tbody class="o-table__body">
                                       <tr class="o-table__row">
-                                        <td class="o-table__col">Automóvil</td>
-                                        <td class="o-table__col">Morning</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  <table class="o-table o-table--basic">
-                                    <thead class="o-table__head">
-                                      <tr class="o-table__row">
-                                        <th class="o-table__col">Marca</th>
-                                        <th class="o-table__col">Año</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody class="o-table__body">
-                                      <tr class="o-table__row">
-                                        <td class="o-table__col">KIA</td>
-                                        <td class="o-table__col">2011</td>
+                                          <td class="o-table__col"><%= cliente.getCorreo() %></td>
+                                        <td class="o-table__col"><%= cliente.getTelefono() %></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -183,27 +169,6 @@
             </div>
           </div>
         </section>
-        <div class="u-bgwhite u-ptb40">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12">
-                <h2 class="o-title o-title--secundary u-text-center u-mb40">Compañías que trabajan con nosotros</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-bancochile.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-bicevida.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-bnpparibascardif.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-consorcio.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-libertyseguros.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-segurossura.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2 offset-lg-2"><img class="u-image" src="img/brand-mapfreseguros.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-metlife.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-pentaseguros.jpg" alt=""></div>
-              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-zenitseguros.jpg" alt=""></div>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="remodal c-modal" data-remodal-id="loginModal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">   
         <button class="remodal-close" data-remodal-action="close" aria-label="Close">  </button>

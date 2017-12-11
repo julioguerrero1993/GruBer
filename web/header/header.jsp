@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <div class="c-header__link"><a href="#"><img src="${pageContext.request.contextPath}/img/grua2.png"></a></div>
+            <div class="c-header__link"><a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/img/grua2.png"></a></div>
             <% if (c == null){ %>
             <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="#loginModal">Iniciar Sesión</a><a class="c-header__btn c-header__btn--help" href="#">Te ayudamos</a></div>
             <% } else { %>
@@ -32,7 +32,7 @@
     <nav class="c-nav">
       <ul class="c-nav__items">
         <li class="c-nav__item--closeMenu u-hidemobile"><a id="close_menu" href="#"><i class="mx-cancel"></i></a></li>
-        <li class="c-nav__item"><a class="c-nav__link" href="#">Inicio</a></li>
+        <li class="c-nav__item"><a class="c-nav__link" href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
         <li class="c-nav__item"><a class="c-nav__link js-nav-mobile" href="#">Nosotros<i class="mx-chevron-down"> </i></a>
           <ul class="c-nav__sub">
             <li class="c-nav__subitem"><a class="c-nav__link" href="#">Vision</a></li>
