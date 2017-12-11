@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edsge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Busca tu Gr√∫a</title>
+    <title>Busca tu Gr˙a</title>
     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
@@ -25,8 +25,8 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Varela+Round" rel="stylesheet">
     <link href="css/main.min.css" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js"></script>
-
-    <script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script> 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -72,8 +72,8 @@
         var infoWindow2 = new google.maps.InfoWindow({map: map});
         var posgruas = {lat: -33.4206593, lng: -70.6067563};
         navigator.geolocation.getCurrentPosition(function(position) {
-        infoWindow2.setPosition(posgruas);
-            
+            infoWindow2.setPosition(posgruas);
+            infoWindow2.setContent("Gr˙a encontrada");
             map.setCenter(posgruas);
       });}
     </script>
@@ -89,7 +89,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="c-header__link"><a href="#"><img src="img/grua2.png"></a></div>
-            <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="#loginModal">Iniciar Sesi√≥n</a><a class="c-header__btn c-header__btn--help" href="#">Te ayudamos</a></div>
+            <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="#loginModal">Iniciar SesiÛn</a><a class="c-header__btn c-header__btn--help" href="#">Te ayudamos</a></div>
             <div class="c-header__service"><span>Servicio al cliente</span><a href="tel:+5626005005000">600 500 5000</a></div>
             <div class="c-header__toogle"><a class="c-header__menu" id="menu-mobile" href="#" state="0"></a></div>
             <div class="c-header__mobile-buttons"><a class="c-header__btn-mobile c-header__btn-mobile--call" href="tel:6005005000"><i></i></a><a class="c-header__btn-mobile c-header__btn-mobile--user" href="#loginModal"><i></i></a></div>
@@ -111,7 +111,7 @@
         <li class="c-nav__item"><a class="c-nav__link js-nav-mobile" href="#">Nuestra Flota<i class="mx-chevron-down"> </i></a></li>
         <li class="c-nav__item"><a class="c-nav__link js-nav-mobile" href="#">Servicios<i class="mx-chevron-down"></i></a>
           <ul class="c-nav__sub">
-            <li class="c-nav__subitem"><a class="c-nav__link" href="#">Gr√∫as </a></li>
+            <li class="c-nav__subitem"><a class="c-nav__link" href="#">Gr˙as </a></li>
             <li class="c-nav__subitem"><a class="c-nav__link" href="#">Servicios adicionales</a></li>
           </ul>
         </li>
@@ -122,11 +122,11 @@
         <div class="c-hero">
           <div class="c-quotient">
             <div class="c-quotient__inner">
-              <h1 class="c-quotient__title"><strong>Buscar</strong><br> Gr√∫a</h1>
-              <p class="c-quotient__subtitle">Obt√©n tu gr√∫a en l√≠nea</p>
+              <h1 class="c-quotient__title"><strong>Buscar</strong><br> Gr˙a</h1>
+              <p class="c-quotient__subtitle">ObtÈn tu gr˙a en lÌnea</p>
               <form class="o-form o-form--quotient" action="">
                 <div class="o-form__field o-form__field--select">
-                  <label class="o-form__label">Veh√≠culo</label>
+                  <label class="o-form__label">VehÌculo</label>
                   <select class="o-form__select">
                     <option value="null">Moto</option>
                     <option value="null">Carrito</option>
@@ -139,7 +139,7 @@
                   </select>
                 </div>
                 <div class="o-form__field o-form__field--actions">
-                  <input class="o-btn o-btn--primary" type="submit" onclick="buscarGruas()" value="Buscar Gr√∫as">
+                  <input class="o-btn o-btn--primary" type="button" onclick="buscarGruas()" value="Buscar Gr˙as">
                 </div>
               </form>
             </div>
@@ -152,10 +152,10 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="o-box u-mb40 u-text-center">
-                  <h2 class="o-title o-title--secundary">¬øQu√© quieres llevar en tu Gr√∫a?</h2>
-                  <h5 class="o-title o-title--epigraph">Selecciona un producto para m√°s informaci√≥n</h5>
+                  <h2 class="o-title o-title--secundary">øQuÈ quieres llevar en tu Gr˙a?</h2>
+                  <h5 class="o-title o-title--epigraph">Selecciona un producto para m·s informaciÛn</h5>
                   <ul class="o-list o-list--products row">
-                    <li class="o-list__item col-md-4 col-sm-6"><a class="o-list__link" href="#"><i class="o-list__icon mx-car"></i><span class="o-list__title">VEH√çCULO</span></a></li>
+                    <li class="o-list__item col-md-4 col-sm-6"><a class="o-list__link" href="#"><i class="o-list__icon mx-car"></i><span class="o-list__title">VEHÕCULO</span></a></li>
                     <li class="o-list__item col-md-4 col-sm-6"><a class="o-list__link" href="#"><i class="o-list__icon mx-scooter"></i><span class="o-list__title">MOTO</span></a></li>
                     <li class="o-list__item col-md-4 col-sm-6"><a class="o-list__link" href="#"><i class="o-list__icon mx-briefcase"></i><span class="o-list__title">VIAJES</span></a></li>
                   </ul>
@@ -182,7 +182,7 @@
                     </g>
                   </g>
                 </svg></i>
-              <h1>INICIO SESI√ìN</h1>
+              <h1>INICIO SESI”N</h1>
             </div>
           </div>
           <div class="c-modal__modalBody">
@@ -196,7 +196,7 @@
                 </div>
                 <div class="col-lg-12">
                   <div class="o-form__field">
-                    <label class="o-form__label">Contrase√±a</label>
+                    <label class="o-form__label">ContraseÒa</label>
                     <input class="o-form__input" type="text" placeholder="*******" required="" name="password"><span class="o-form__message"></span>
                   </div>
                 </div>
@@ -210,7 +210,7 @@
           </div>
           <div class="c-modal__modalLinks">
             <div class="row">
-              <div class="col-lg-12"><a class="lostPass" href="#">¬øOLVIDASTE TU CONTRASE√ëA?</a><a class="lostPass" href="#">¬øPara que sirve tu clave? </a></div>
+              <div class="col-lg-12"><a class="lostPass" href="#">øOLVIDASTE TU CONTRASE—A?</a><a class="lostPass" href="#">øPara que sirve tu clave? </a></div>
               <div class="col-lg-12"><a class="registration" href="#"><i class="o-icon">
                     <svg width="18px" height="18px" viewbox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -223,14 +223,14 @@
                           </g>
                         </g>
                       </g>
-                    </svg></i>REG√çSTRATE</a></div>
+                    </svg></i>REGÕSTRATE</a></div>
             </div>
           </div>
         </div>
       </div>
     </main>
     <div class="c-socialbar u-ptb20">
-      <div class="c-socialbar__social"><span class="c-socialbar__text">S√≠guenos en</span><a class="c-socialbar__link c-socialbar__link--twitter" href="#"><i class="c-socialbar__icon mx-twitter"></i></a><a class="c-socialbar__link c-socialbar__link--youtube" href="#"><i class="c-socialbar__icon mx-youtube"></i></a><a class="c-socialbar__link c-socialbar__link--facebook" href="#"><i class="c-socialbar__icon mx-facebook"></i></a></div>
+      <div class="c-socialbar__social"><span class="c-socialbar__text">SÌguenos en</span><a class="c-socialbar__link c-socialbar__link--twitter" href="#"><i class="c-socialbar__icon mx-twitter"></i></a><a class="c-socialbar__link c-socialbar__link--youtube" href="#"><i class="c-socialbar__icon mx-youtube"></i></a><a class="c-socialbar__link c-socialbar__link--facebook" href="#"><i class="c-socialbar__icon mx-facebook"></i></a></div>
       <div class="c-socialbar__phone"><span>Servicio al cliente</span><br><a href="tel:+5626005005000">600 500 5000</a></div>
     </div>
     <div class="c-payments">
@@ -242,7 +242,6 @@
         </div>
       </div>
     </div>
-    
     <script src="js/libs/bundle.js"></script>
     <script src="js/libs/slick.min.js"></script>
     <script src="js/libs/jquery.responsiveTabs.js"></script>

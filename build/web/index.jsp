@@ -25,8 +25,8 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Varela+Round" rel="stylesheet">
     <link href="css/main.min.css" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js"></script>
-
-    <script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script> 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -72,8 +72,8 @@
         var infoWindow2 = new google.maps.InfoWindow({map: map});
         var posgruas = {lat: -33.4206593, lng: -70.6067563};
         navigator.geolocation.getCurrentPosition(function(position) {
-        infoWindow2.setPosition(posgruas);
-            
+            infoWindow2.setPosition(posgruas);
+            infoWindow2.setContent("Grúa encontrada");
             map.setCenter(posgruas);
       });}
     </script>
@@ -139,7 +139,7 @@
                   </select>
                 </div>
                 <div class="o-form__field o-form__field--actions">
-                  <input class="o-btn o-btn--primary" type="submit" onclick="buscarGruas()" value="Buscar Grúas">
+                  <input class="o-btn o-btn--primary" type="button" onclick="buscarGruas()" value="Buscar Grúas">
                 </div>
               </form>
             </div>
@@ -242,7 +242,6 @@
         </div>
       </div>
     </div>
-    
     <script src="js/libs/bundle.js"></script>
     <script src="js/libs/slick.min.js"></script>
     <script src="js/libs/jquery.responsiveTabs.js"></script>
