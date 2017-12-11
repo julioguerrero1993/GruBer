@@ -20,7 +20,7 @@
             <% if (c == null){ %>
             <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="#loginModal">Iniciar Sesión</a><a class="c-header__btn c-header__btn--help" href="#">Te ayudamos</a></div>
             <% } else { %>
-            <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="${pageContext.request.contextPath}/Logout">Cerrar Sesión</a><a class="c-header__btn c-header__btn--help" href="#">Te ayudamos</a></div>
+            <div class="c-header__sesion"><a class="c-header__btn c-header__btn--login" href="${pageContext.request.contextPath}/PanelUsuario/panel_usuario.jsp">Mi cuenta</a><a class="c-header__btn c-header__btn--help" href="${pageContext.request.contextPath}/Logout">Cerrar Sesión</a></div>
             <% } %>
             <div class="c-header__service"><span>Servicio al cliente</span><a href="tel:+5626005005000">600 500 5000</a></div>
             <div class="c-header__toogle"><a class="c-header__menu" id="menu-mobile" href="#" state="0"></a></div>

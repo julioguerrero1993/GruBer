@@ -6,6 +6,9 @@
 <%@page import="DTO.Cliente"%>
 <% HttpSession sessionCliente = request.getSession(); %>
 <% Cliente cliente = (Cliente) sessionCliente.getAttribute("sessionCliente"); %>
+<% if (cliente == null) {
+   response.sendRedirect("index.jsp");
+} %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
