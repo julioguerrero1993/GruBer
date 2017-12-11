@@ -169,23 +169,23 @@
             </div>
           </div>
           <div class="c-modal__modalBody">
-            <form class="o-form--loginForm" id="login">
+              <form class="o-form--loginForm" id="login" action="/cl.gruber.Controller/LoginClienteController.java" method="POST">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="o-form__field">
                     <label class="o-form__label">RUT</label>
-                    <input class="o-form__input" type="text" placeholder="Ej: 1234567-9" required="" name="rut" maxlength="12"><span class="o-form__message"></span>
+                    <input class="o-form__input" type="text" placeholder="Ej: 1234567-9" required="" name="rut" id="rut" maxlength="12"><span class="o-form__message"></span>
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="o-form__field">
                     <label class="o-form__label">Contraseña</label>
-                    <input class="o-form__input" type="text" placeholder="*******" required="" name="password"><span class="o-form__message"></span>
+                    <input class="o-form__input" type="text" placeholder="*******" required="" name="password" id="password"><span class="o-form__message"></span>
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="o-form__field">
-                      <button class="o-btn o-btn--primary" id="enter" type="button">Ingresar</button>
+                      <button class="o-btn o-btn--primary" id="enter" type="submit">Ingresar</button>
                   </div>
                 </div>
               </div>

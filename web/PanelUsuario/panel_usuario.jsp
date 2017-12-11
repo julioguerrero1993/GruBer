@@ -119,7 +119,7 @@
         <section class="container">
           <div class="row">
             <div class="col-12">
-              <h1 class="o-title o-title--primary">Contratación Seguro Auto Full Servicio</h1>
+              <h1 class="o-title o-title--primary">Penel de Usuario</h1>
             </div>
             <div class="col-12">
               <section class="o-box o-box--recruiting u-mtb50">
