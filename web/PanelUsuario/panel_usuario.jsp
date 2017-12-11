@@ -1,10 +1,17 @@
+<%-- 
+    Document   : panel_usuario
+    Created on : 10-12-2017, 22:33:23
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edsge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Busca tu Gr˙a</title>
+    <title>Panel de Usuario</title>
     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
@@ -23,34 +30,47 @@
     <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Varela+Round" rel="stylesheet">
-    <link href="css/main.min.css" rel="stylesheet">
+    <link href="../css/main.min.css" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script> 
       function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 15
         });
-        var infoWindow = new google.maps.InfoWindow({map: map});
-
+        directionsDisplay.setMap(map);
         // intenta iniciar el mapa.
         if (navigator.geolocation) {
+            alert("entra al if");
+          var posgruas = {lat: -33.4206593, lng: -70.6067563};
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent("Ubicacion encontrada");
-            agregaColorTextoContent();
-            map.setCenter(pos);
+            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            directionsService.route({
+              origin: pos,
+              destination: posgruas,
+              travelMode: 'DRIVING'
+            }, function(response, status) {
+                if (status === 'OK') {
+                  directionsDisplay.setDirections(response);
+                } else {
+                  window.alert('Directions request failed due to ' + status);
+                }
+              });
+            }
+            
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
           agregaColorTextoContent();
         } else {
+            alert("entra al else");
           // navegador no puede utilizar el geolocalizador
           handleLocationError(false, infoWindow, map.getCenter());
         }
@@ -79,71 +99,117 @@
         var posgruas = {lat: -33.4206593, lng: -70.6067563};
         navigator.geolocation.getCurrentPosition(function(position) {
             infoWindow2.setPosition(posgruas);
-            infoWindow2.setContent("Gr˙a encontrada");
+            infoWindow2.setContent("Gr√∫a encontrada");
             agregaColorTextoContent();
             map.setCenter(posgruas);
       });}
-      $(document).ready(function(){
-          $("#enter").click(function(){
-          window.location = "PanelUsuario/panel_usuario.jsp";
-      });
-          
-      });
     </script>
     <style>
       #map {
-        height: 100%;
+        height: 90%;
       }
     </style>
   </head>
   <body>
-    <!-- HEADER -->  
-    <%@include file="header/header.jsp" %>
+    <!-- HEADER -->
+    <%@include file="../header/header.jsp" %>
     <!-- FIN HEADER -->
     <main role="main">
       <div class="remodal-bg">
-        <div class="c-hero">
-          <div class="c-quotient">
-            <div class="c-quotient__inner">
-              <h1 class="c-quotient__title"><strong>Buscar</strong><br> Gr˙a</h1>
-              <p class="c-quotient__subtitle">ObtÈn tu gr˙a en lÌnea</p>
-              <form class="o-form o-form--quotient" action="">
-                <div class="o-form__field o-form__field--select">
-                  <label class="o-form__label">VehÌculo</label>
-                  <select class="o-form__select">
-                    <option value="null">Moto</option>
-                    <option value="null">Carrito</option>
-                  </select>
+        <section class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="o-title o-title--primary">Contrataci√≥n Seguro Auto Full Servicio</h1>
+            </div>
+            <div class="col-12">
+              <section class="o-box o-box--recruiting u-mtb50">
+                <div class="u-pad20">
+                  <div class="row">
+                    <div class="col-lg-8 u-mobile_second">
+                      <h2 class="o-title o-title--subtitle u-mb10">Datos de tu Gr√∫a</h2>
+                      <p class="o text">Vista en Vivo de tu Gr√∫a.</p>
+                      <div id="map"></div>
+                    </div>
+                    <div class="col-lg-4 u-mobile_first">
+                      <section class="c-summary" id="summary_sure">
+                        <h2 class="c-summary__title">Resumen de tu cuenta</h2>
+                        <div class="c-summary__company"><img class="c-summary__image" src="img/summary_seguros_sura.png" alt=""></div>
+                        <h3 class="c-summary__subtitle">Datos del Usuario</h3>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="c-summary__cost">
+                              <div class="c-summary__label">Nombre : </div>
+                              <div class="c-summary__price"><sup> </sup>Juan Soto<sub></sub></div>
+                            </div>
+                            <p class="c-summary__legal">Gr√∫a en Camino : NO</p>
+                          </div>
+                          <div class="col-12 u-mobile_second">
+                            <div class="o-collapse"><a class="o-collapse__button o-btn o-btn--outline o-btn--secundary o-btn o-btn--icon" href="#" state="0"> Ver detalle de la Cuenta<i class="o-icon o-icon--triangle"><span class="u-triangle_down"></span></i></a>
+                              <div class="o-collapse__content">
+                                <div class="c-summary__detail">
+                                  <table class="o-table o-table--basic u-mb20">
+                                    <thead class="o-table__head">
+                                      <tr class="o-table__row">
+                                        <th class="o-table__col">Tipo</th>
+                                        <th class="o-table__col">Modelo</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="o-table__body">
+                                      <tr class="o-table__row">
+                                        <td class="o-table__col">Autom√≥vil</td>
+                                        <td class="o-table__col">Morning</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <table class="o-table o-table--basic">
+                                    <thead class="o-table__head">
+                                      <tr class="o-table__row">
+                                        <th class="o-table__col">Marca</th>
+                                        <th class="o-table__col">A√±o</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="o-table__body">
+                                      <tr class="o-table__row">
+                                        <td class="o-table__col">KIA</td>
+                                        <td class="o-table__col">2011</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="c-assistance u-mb30 u-hidden_mobile">
+                          <h4 class="c-assistance__title">¬øNecesitas asistencia?</h4><a class="c-assistance__button o-btn o-btn--outline o-btn--secundary o-btn o-btn--icon" href="#">Te llamamos gratis</a>
+                          <p class="c-assistance__text">O ll√°manos gratis al<strong class="c-assistance__outstanding"> 600 500 5000</strong></p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
                 </div>
-                <div class="o-form__field o-form__field--select">
-                  <label class="o-form__label">Servicio</label>
-                  <select class="o-form__select">
-                    <option value="null">Selecciona un Servico</option>
-                  </select>
-                </div>
-                <div class="o-form__field o-form__field--actions">
-                  <input class="o-btn o-btn--primary" type="button" onclick="buscarGruas()" value="Buscar Gr˙as">
-                </div>
-              </form>
+              </section>
             </div>
           </div>
-          <div id="map"></div>
-          
-        </div>
-        <div class="c-products u-mt-5">
+        </section>
+        <div class="u-bgwhite u-ptb40">
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                <div class="o-box u-mb40 u-text-center">
-                  <h2 class="o-title o-title--secundary">øQuÈ quieres llevar en tu Gr˙a?</h2>
-                  <h5 class="o-title o-title--epigraph">Selecciona un producto para m·s informaciÛn</h5>
-                  <ul class="o-list o-list--products row">
-                    <li class="o-list__item col-md-4 col-sm-6"><a class="o-list__link" href="#"><i class="o-list__icon mx-car"></i><span class="o-list__title">VEHÕCULO</span></a></li>
-                    <li class="o-list__item col-md-4 col-sm-6"><a class="o-list__link" href="#"><i class="o-list__icon mx-scooter"></i><span class="o-list__title">MOTO</span></a></li>
-                    <li class="o-list__item col-md-4 col-sm-6"><a class="o-list__link" href="#"><i class="o-list__icon mx-briefcase"></i><span class="o-list__title">VIAJES</span></a></li>
-                  </ul>
-                </div>
+                <h2 class="o-title o-title--secundary u-text-center u-mb40">Compa√±√≠as que trabajan con nosotros</h2>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-bancochile.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-bicevida.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-bnpparibascardif.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-consorcio.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-libertyseguros.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-segurossura.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2 offset-lg-2"><img class="u-image" src="img/brand-mapfreseguros.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-metlife.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-pentaseguros.jpg" alt=""></div>
+              <div class="col-6 col-md-4 col-lg-2"><img class="u-image" src="img/brand-zenitseguros.jpg" alt=""></div>
             </div>
           </div>
         </div>
@@ -165,7 +231,7 @@
                     </g>
                   </g>
                 </svg></i>
-              <h1>INICIO SESI”N</h1>
+              <h1>INICIO SESI√ìN</h1>
             </div>
           </div>
           <div class="c-modal__modalBody">
@@ -179,13 +245,13 @@
                 </div>
                 <div class="col-lg-12">
                   <div class="o-form__field">
-                    <label class="o-form__label">ContraseÒa</label>
+                    <label class="o-form__label">Contrase√±a</label>
                     <input class="o-form__input" type="text" placeholder="*******" required="" name="password"><span class="o-form__message"></span>
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="o-form__field">
-                      <button class="o-btn o-btn--primary" id="enter" type="button">Ingresar</button>
+                    <button class="o-btn o-btn--primary" id="enter" type="submit">Ingresar</button>
                   </div>
                 </div>
               </div>
@@ -193,7 +259,7 @@
           </div>
           <div class="c-modal__modalLinks">
             <div class="row">
-              <div class="col-lg-12"><a class="lostPass" href="#">øOLVIDASTE TU CONTRASE—A?</a><a class="lostPass" href="#">øPara que sirve tu clave? </a></div>
+              <div class="col-lg-12"><a class="lostPass" href="#">¬øOLVIDASTE TU CONTRASE√ëA?</a><a class="lostPass" href="#">¬øPara que sirve tu clave? </a></div>
               <div class="col-lg-12"><a class="registration" href="#"><i class="o-icon">
                     <svg width="18px" height="18px" viewbox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -206,18 +272,65 @@
                           </g>
                         </g>
                       </g>
-                    </svg></i>REGÕSTRATE</a></div>
+                    </svg></i>REG√çSTRATE</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="remodal c-modal c-modal--modal-options" data-remodal-id="continueModal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">   
+        <button class="remodal-close" data-remodal-action="close" aria-label="Close">  </button>
+        <div class="c-modal__wrap">
+          <div class="c-modal__modalHead">
+            <div class="c-modal__modalHead-inner"> 
+              <h2>Selecciona como deseas continuar tu compra</h2>
+            </div>
+          </div>
+          <div class="c-modal__modalBody">
+            <div class="row">
+              <div class="col-md-6"> 
+                <div class="item guest">
+                  <h3>Continuar como invitado</h3>
+                  <button class="o-btn o-btn--primary o-btn--medium" id="enter" type="submit">Comprar sin registrarme </button>
+                  <p>Podr√°s realizar tus compras sin estar registrado y crear tu contrase√±a despu√©s. </p>
+                </div>
+              </div>
+              <div class="col-md-6"> 
+                <div class="item login">
+                  <h3>O como usuario registrado</h3>
+                  <form class="o-form--loginForm" id="login">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="o-form__field">
+                          <label class="o-form__label">RUT</label>
+                          <input class="o-form__input" type="text" placeholder="Ej: 1234567-9" required="" name="rut" maxlength="12"><span class="o-form__message"></span>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="o-form__field">
+                          <label class="o-form__label">Contrase√±a</label>
+                          <input class="o-form__input" type="text" placeholder="*******" required="" name="password"><span class="o-form__message"></span>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="o-form__field">
+                          <button class="o-btn o-btn--primary o-btn--medium" id="enter" type="submit">Ingresar y continuar  </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <%@include file="footer/footer.jsp" %>
-    <script src="js/libs/bundle.js"></script>
-    <script src="js/libs/slick.min.js"></script>
-    <script src="js/libs/jquery.responsiveTabs.js"></script>
-    <script src="js/libs/remodal.js"></script>
-    <script src="js/main.min.js"></script>
+    <%@include file="../footer/footer.jsp" %>
+    <script src="../js/libs/bundle.js"></script>
+    <script src="../js/libs/slick.min.js"></script>
+    <script src="../js/libs/jquery.responsiveTabs.js"></script>
+    <script src="../js/libs/remodal.js"></script>
+    <script src="../js/main.min.js"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdz1DcKwHUPmTn5si-CF13IeOP91i8dgc&callback=initMap"
